@@ -4,6 +4,9 @@ from .mensajes_data import MENSAJES
 
 # Create your views here.
 
+def hub(request):
+    return render(request, 'appmensajes/hub.html')
+
 FECHA_INICIO = date(2026, 10, 10)
 
 def vista_mensaje(request):
