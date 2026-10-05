@@ -1,0 +1,27 @@
+{% load static %}
+<html>
+    <head>
+        <title>Main Hub</title>
+        <link rel="stylesheet" href="{% static 'style.css' %}">
+    </head>
+    <body>
+        
+        <div class="div-botones">
+            <div class="contenedor-boton">
+                    <button id="btn-notificar" class="boton">
+                        Enviar besos
+                    </button>
+                    <p id="estado-notificacion" class="texto-notif"></p>
+                
+            </div>
+             <div class="contenedor-atras">
+                <a href="{% url 'hub' %}" class="boton-atras">Atrás</a>
+
+            </div>
+        </div>
+
+        <script src="{% static 'notificar.js' %}"></script>
+    </body>
+
+    
+</html>

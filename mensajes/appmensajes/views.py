@@ -1,6 +1,7 @@
 from django.shortcuts import render
 from datetime import date
 from .mensajes_data import MENSAJES
+from .models import FotoGaleria
 
 # Create your views here.
 
@@ -16,4 +17,12 @@ def vista_mensaje(request):
 
     return render(request, "appmensajes/mensaje.html", {"mensaje": mensaje})
 
+def vista_notificacion(request):
+    return render(request, 'appmensajes/notificacion.html')
+
 # proyectos\venv-30-mensajes\mensajes\appmensajes\templates\mensaje.html
+
+def vista_galeria(request):
+    fotos = FotoGaleria.objects.all()
+    return render(request, "appmensajes/galeria.html", {"fotos": fotos})
+
