@@ -11,6 +11,6 @@ class FotoGaleria(models.Model):
         ordering = ["-fecha"]
 
     def __str__(self):
-        return self.descripcion or f"Fodo {self.id}"
+        return self.descripcion or f"Foto {self.id}"
 
         

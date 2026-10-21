@@ -1,33 +1,42 @@
 {% load static %}
-<html>
+<!DOCTYPE html>
+<html lang="es">
     <head>
         <meta charset="UTF-8">
-        <title> Galeria de fotos </title>
+        <title>Galeria de fotos</title>
         <link rel="stylesheet" href="{% static 'style.css' %}">
     </head>
     <body>
-        <div class="contenedor-mensaje">
-            <h1> Galeria de fotos </h1>
-            {% if fotos %}
-            <div class="fila">
-                {% for foto in fotos %}
-                <div class="columna">
-                    <div class="contenedor-foto">
-                        <img src="{{foto.imagen.url}}" alt="{{foto.descripcion}}" class="foto">
-                        {% if foto.descripcion %}
-                        <div class="cuerpo_foto">
-                            <p class="texto_foto">{{ foto.descripcion }}</p>
-                        </div>"
+        <div class="contenedor-div">
 
-                        {% endif %}
+            <div class="contenedor-mensaje">
+                <h1>Galeria de fotos</h1>
+                {% if fotos %}
+                <div class="fila">
+                    {% for foto in fotos %}
+                    <div class="columna">
+                        <div class="contenedor-foto">
+
+                            <a href="{% static 'galeria/'|add:foto.archivo %}" target="_blank" rel="noopener">
+                                <img src="{% static 'galeria/'|add:foto.archivo %}" alt="{{ foto.descripcion }}" class="foto">
+                            </a>
+                            {% if foto.descripcion %}
+                            <div class="cuerpo_foto">
+                                <p class="texto_foto">{{ foto.descripcion }}</p>
+                            </div>
+                            {% endif %}
+                        </div>
                     </div>
-
+                    {% endfor %}
                 </div>
-                {% endfor %}
+                {% else %}
+                    <p>No hay fotos aún</p>
+                {% endif %}
             </div>
-            {% else %}
-                <p>No hay fotos aún</p>
-            {% endif %}
+
+            <div class="contenedor-atras">
+                <a href="{% url 'hub' %}" class="boton-atras">Atrás</a>
+            </div>
         </div>
     </body>
 </html>
